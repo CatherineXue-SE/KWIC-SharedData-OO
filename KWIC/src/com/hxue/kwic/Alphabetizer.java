@@ -15,6 +15,7 @@ public class Alphabetizer extends Filter {
 		while(true) {
 			try {
 				String s = read();
+				System.out.println("");
 				buffer.add(s);
 			} catch(EOFException e) {
 				break;

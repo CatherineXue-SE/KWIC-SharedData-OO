@@ -1,14 +1,35 @@
 package com.hxue.kwic;
-import java.util.Scanner;
+import java.io.EOFException;
 
-public class KWIC extends Filter{
+public class KWIC {
 		
-    public String KWIC(String input)
+    public String parse(String input) throws EOFException
     {
-    	String line = "";
-		Scanner scanner = new Scanner(input);
-		while(scanner.hasNextLine()) {
-			line = scanner.nextLine();
+			output newoutput =  new output();
+			Pipe p0 = new Pipe();
+			input newinput = new input(input);
+			newinput.exportdata(p0);
+			newinput.run();
+			Pipe p1 = new Pipe();
+			Filter shift = new CircularShifter();
+			shift.importdata(p0);
+			shift.exportdata(p1);
+			shift.run();
+			Filter sort = new Alphabetizer();
+			Pipe p2 = new Pipe();
+			sort.importdata(p1);
+			sort.exportdata(p2);
+			sort.run();
+			//newinput.exportdata(p1);
+			//Pipe p2 = new Pipe();
+			//Filter sort = new Alphabetizer();
+			//shift.exportdata(p2);
+			//sort.importdata(p2);
+			//shift.run();
+			//steps newsteps = new steps(new input(input),new CircularShifter(),new Alphabetizer(),newoutput);
+			//System.out.print(newoutput.outputValue());
+			//Thread thread = new Thread(newsteps);;
+			//thread.run();
 			/*Filter filter = null;
 			Pipe p0 = new Pipe();
 			filter.setOut(p0);
@@ -18,16 +39,11 @@ public class KWIC extends Filter{
 			Alphabetizer sort = new Alphabetizer();
 			Pipe p2 = new Pipe();
 			sort.setIn(p2);*/
-		}
-		return line + "++++";
+		
+		return  "";//newoutput.outputValue() +  "++++";
 		
     }
 
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 }
