@@ -19,7 +19,9 @@ public class steps implements Runnable {
 	@Override
 	public void run() {
 		for(Filter f : filters) {
-			(new Thread(f)).start();
+			Thread newthread = new Thread(f);
+			newthread.start();
+
 		}
 	}
 

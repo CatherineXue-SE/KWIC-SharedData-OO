@@ -1,11 +1,11 @@
 package com.hxue.kwic;
 import java.util.Scanner;
 
-public class input extends Filter{
+public class InputFilter extends Filter{
 	
 private String reader;
 	
-	public input(String inputdata) {
+	public InputFilter(String inputdata) {
 		reader = inputdata;
 	}
 	

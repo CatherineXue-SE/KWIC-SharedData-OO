@@ -5,7 +5,7 @@ public class CircularShifter extends Filter {
 
 	@Override
 	public void run() {
-		while (true) {
+		while (!Thread.currentThread().isInterrupted()) {
 			try {
 				String s = read();
 				String tokens[] = s.split("\\s");
@@ -16,7 +16,7 @@ public class CircularShifter extends Filter {
 						sb.append(tokens[j]);
 						sb.append(" ");
 					}
-					System.out.println("shift + " + sb);
+				//	System.out.println("shift + " + sb);
 					sb.append("\n");
 					shiftLeft(tokens);
 					write(sb.toString());

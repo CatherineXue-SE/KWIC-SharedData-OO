@@ -46,14 +46,14 @@ public class submitform extends HttpServlet {
 				+ "\">Go Back</button>\n"
 				+ "<h1>Result</h1>\n"
 				+ "    <form action=\"submitform\" method=\"post\">\n"
-				+ "     <input name=\"inputvalue\" value = \"" +newkwic.parse(inputvalue)+ "\"style=\"min-height: 150px; width: 80%;\"></input>\n"
+				+ "     <textarea name=\"inputvalue\" style=\"min-height: 150px; width: 80%;\">" +inputvalue+ "</textarea>\n"
 				+ "    <br>\n"
 				+ "    <p style=\"margin-top: 20\"></p>\n"
 				+ "        <input type=\"submit\" id=\"outputbutton\" value=\"Output\" />\n"
 				+ "    \n"
 				+ "</form>\n"
 				+ "    \n"
-				+ "    <textarea id=\"outputvalue\" style=\"min-height: 150px; width: 80%;\"></textarea>\n"
+				+ "    <textarea id=\"outputvalue\" style=\"min-height: 150px; width: 80%;\">"  + newkwic.parse(inputvalue) + "</textarea>\n"
 				+ "    \n";
 		writer.println(output);
 		writer.close();
