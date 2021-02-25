@@ -11,7 +11,7 @@
 <body>
     <h1>Welcome to KWIC System</h1>
     <form action="submitform" method="post">
-     <input name="inputvalue" style="min-height: 150px; width: 80%;"></input>
+     <textarea name="inputvalue" style="min-height: 150px; width: 80%;"></textarea>
     <br>
     <p style="margin-top: 20"></p>
         <input type="submit" id="outputbutton" value="Output" />
