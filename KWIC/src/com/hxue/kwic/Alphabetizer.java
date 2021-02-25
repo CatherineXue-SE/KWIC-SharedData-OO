@@ -15,15 +15,18 @@ public class Alphabetizer extends Filter {
 		while(true) {
 			try {
 				String s = read();
-				System.out.println("");
 				buffer.add(s);
+				System.out.println("sort + " + buffer);
+
 			} catch(EOFException e) {
 				break;
 			}
 		}
 		
 		while(!buffer.isEmpty())
+		{
 			write(buffer.pollFirst());
+		}
 		
 		write(null);
 	}

@@ -8,7 +8,7 @@ public class output extends Filter {
 	public void run() {
 		while(true) {
 			try {
-				System.out.print(read());
+				System.out.print("output + " + read());
 			} catch(EOFException e) {
 				break;
 			}
