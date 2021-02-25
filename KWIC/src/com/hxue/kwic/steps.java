@@ -1,6 +1,8 @@
 package com.hxue.kwic;
 
 import java.io.EOFException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class steps implements Runnable {
 	
@@ -18,9 +20,10 @@ public class steps implements Runnable {
 
 	@Override
 	public void run() {
+		//List<Thread> newthreadarr = new ArrayList<>();
 		for(Filter f : filters) {
 			Thread newthread = new Thread(f);
-			newthread.start();
+			newthread.start();		
 
 		}
 	}

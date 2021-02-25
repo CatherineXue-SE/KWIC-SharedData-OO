@@ -10,7 +10,6 @@ public class KWIC {
 	 static String finaloutput="";
     public String parse(String input) throws EOFException
     {
-    	Filter newoutput = new OutputFilter();
 		    steps newstep = new steps(
 		    		new InputFilter(input),
 					new CircularShifter(),
@@ -19,8 +18,27 @@ public class KWIC {
 					);
 			Thread thread = new Thread(newstep);;
 			thread.run();
-			
-		
+
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			/*BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+			try {
+				String read;
+				while(true) {
+					read = reader.readLine();
+					if(read == null) {
+						break;
+					}
+					System.out.println(read);
+				}
+			} catch (IOException e) {
+				System.err.println("IOException caught in Filter::StandardIn");
+			}*/
 		return  getOutput();//newoutput.read();//newoutput.read().toString();
 		
     }
