@@ -8,38 +8,36 @@ import java.util.Scanner;
 public class KWIC {
 		
 	 static String finaloutput="";
+	 static int count = 0;
+	 static int numofraws = 0;
     public String parse(String input) throws EOFException
     {
+    	
+    	count = 0;
+		String[] raws = input.split("\\r?\\n");
+		numofraws = raws.length;
+		for(String line: raws)
+		{
+			count+= line.trim().split("\\s").length;
+		}
+		finaloutput = "";
+
 		    steps newstep = new steps(
 		    		new InputFilter(input),
-					new CircularShifter(),
 					new Alphabetizer(),
+
+					new CircularShifter(),
 					new OutputFilter()
 					);
 			Thread thread = new Thread(newstep);;
 			thread.run();
-
 			try {
-				Thread.sleep(20);
+				Thread.sleep(300);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			/*BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-			try {
-				String read;
-				while(true) {
-					read = reader.readLine();
-					if(read == null) {
-						break;
-					}
-					System.out.println(read);
-				}
-			} catch (IOException e) {
-				System.err.println("IOException caught in Filter::StandardIn");
-			}*/
-		return  getOutput();//newoutput.read();//newoutput.read().toString();
+		return  getOutput();
 		
     }
    

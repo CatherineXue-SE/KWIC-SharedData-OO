@@ -10,7 +10,13 @@ public class steps implements Runnable {
 	
 	public steps(Filter ... filters ) throws EOFException {
 		this.filters = filters;
-		
+		//System.out.println(KWIC.count + " =  =  " + KWIC.numofraws);
+		//System.out.println(filters[1].getClass().getSimpleName().toString());
+
+		if(filters[1].getClass().getSimpleName().toString().equals("Alphabetizer"))
+		{
+			KWIC.count = KWIC.numofraws + 0;
+		}
 		for(int i = 0; i < filters.length - 1; i++) {
 			Pipe p = new Pipe();
 			filters[i].exportdata(p);
@@ -27,5 +33,7 @@ public class steps implements Runnable {
 
 		}
 	}
+	
+	
 
 }

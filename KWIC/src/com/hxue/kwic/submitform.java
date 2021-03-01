@@ -42,7 +42,8 @@ public class submitform extends HttpServlet {
 		String inputvalue = request.getParameter("inputvalue");
 		PrintWriter writer = response.getWriter();
 		KWIC newkwic = new KWIC();
-		String output =  "<button onclick=\"window.history.back();\n"
+		String output = newkwic.parse(inputvalue);
+		String outputhtml =  "<button onclick=\"window.history.back();\n"
 				+ "\">Go Back</button>\n"
 				+ "<h1>Result</h1>\n"
 				+ "    <form action=\"submitform\" method=\"post\">\n"
@@ -53,9 +54,9 @@ public class submitform extends HttpServlet {
 				+ "    \n"
 				+ "</form>\n"
 				+ "    \n"
-				+ "    <textarea id=\"outputvalue\" style=\"min-height: 150px; width: 80%;\">"  + newkwic.parse(inputvalue) + "</textarea>\n"
+				+ "    <textarea id=\"outputvalue\" style=\"min-height: 150px; width: 80%;\">"  + output + "</textarea>\n"
 				+ "    \n";
-		writer.println(output);
+		writer.println(outputhtml);
 		writer.close();
 	}
 

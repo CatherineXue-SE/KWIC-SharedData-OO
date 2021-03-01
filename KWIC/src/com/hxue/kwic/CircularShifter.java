@@ -16,7 +16,6 @@ public class CircularShifter extends Filter {
 						sb.append(tokens[j]);
 						sb.append(" ");
 					}
-				//	System.out.println("shift + " + sb);
 					sb.append("\n");
 					shiftLeft(tokens);
 					write(sb.toString());
