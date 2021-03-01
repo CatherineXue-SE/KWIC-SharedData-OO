@@ -24,15 +24,15 @@ public class KWIC {
 
 		    steps newstep = new steps(
 		    		new InputFilter(input),
+					new CircularShifter(),
 					new Alphabetizer(),
 
-					new CircularShifter(),
 					new OutputFilter()
 					);
 			Thread thread = new Thread(newstep);;
 			thread.run();
 			try {
-				Thread.sleep(300);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
