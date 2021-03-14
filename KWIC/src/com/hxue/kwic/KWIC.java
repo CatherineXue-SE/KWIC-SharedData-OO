@@ -24,9 +24,8 @@ public class KWIC {
 
 		    steps newstep = new steps(
 		    		new InputFilter(input),
-					new CircularShifter(),
 					new Alphabetizer(),
-
+					new CircularShifter(),
 					new OutputFilter()
 					);
 			Thread thread = new Thread(newstep);;
