@@ -1,6 +1,4 @@
 package kwic.oo.web.hxue;
-// AlphabeticShifts.java
-// uses CircularShift
 /**
  * Provides access to an alphabetized version of the circular
  * shifts. May not necessarily need to store the alphabetized
